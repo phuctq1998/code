@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Đăng ký</title>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <style>
+        .header {
+            width: 100%;
+            height: 70px;
+            background-color: grey;
+            margin: auto;
+        }
+
+        #sidebar {
+            width: 70%;
+            height: 520px;
+            position: relative;
+            margin: auto;
+            background: grey;
+        }
+
+        button {
+            width: 150px;
+            height: 30px;
+        }
+
+        .item {
+            width: 100%;
+            height: 500px;
+            padding-left: 245px;
+        }
+        .footer {
+            width: 100%;
+            height: 70px;
+            background-color: black;
+        }
+
+        #message {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<script type="text/javascript">
+    var name_input = document.getElementById('name'); //name trùng vs từ khóa
+    var age = document.getElementById('age');
+    var email = document.getElementById('email');
+    // var phone = document.getElementById('phone');
+    var password = document.getElementById('password');
+
+    var btn_submit = document.getElementById('btn_submit');
+    var div_message = document.getElementById('message');
+    btn_submit.addEventListener('click', function (e) {
+        e.preventDefault();
+        var val_name = name_input.value;
+        var val_age = age.value;
+        var val_email = email.value;
+        // var val_phone = phone.value;
+        var val_password = password.value;
+        var message = "<ul>";
+        //required
+        if (val_name == '') {
+            message += "<li>" + "Vui lòng nhập tên bạn" + "</li>";
+        }
+        if (val_age == '') {
+            message += "<li>" + "Vui lòng nhập tuổi bạn" + "</li>";
+        }
+        if (val_email == '') {
+            message += "<li>" + "Vui lòng nhập email bạn" + "</li>";
+        } else if (!validateEmail(val_email)) {
+            message += "<li>" + "Vui lòng nhập email đúng định dạng" + "</li>";
+        }
+        // if (val_phone == '') {
+        //     message += "<li>" + "Vui lòng nhập SĐT bạn" + "</li>";
+        // }
+        if (val_password == '') {
+            message += "<li>" + "Vui lòng nhập mật khẩu" + "</li>";
+        } else if (val_password > 8) {
+            message += "<li>" + "Vui lòng nhập mật khẩu đúng định dạng" + "</li>";
+        }
+        console.log(validateEmail(val_email));
+        message += "</ul>";
+        div_message.innerHTML = message;
+    });
+
+    function validateEmail(email) {
+        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
+    };
+    function validateForm() {
+        alert("đăng ký thành công");
+        return true;
+    };
+    function add_new_user() {
+
+    }
+</script>
+<div class="header">
+    <a href="doanltudm.html" style="text-decoration: none"><img src="logo1.jpg" alt="logo"
+                                                                style="height: 50px; width: 10%; padding-top: 10px"/></a>
+    <div class="header1" style="width: 90%; height: 70px; float: right">
+        <a href="giaodiendangnhap.html" style="text-decoration: none; color: white;font-size: 30px; padding-left: 40px">Đăng
+            nhập</a>
+        <a href="" style="text-decoration: none; color: white;font-size: 30px; padding-left: 40px ">Đăng ký</a>
+    </div>
+</div>
+<div id="sidebar">
+    <div id="container" class="item">
+        <h1 style="margin-block-start: 1px">Đăng Ký</h1>
+        <form action="" method="post" id="form" onsubmit="validateForm()">
+            <div id="message">
+
+            </div>
+            <table>
+                <tr>
+                    <td>Name</td>
+                    <td><input type="text" id="name" placeholder="please enter name" style="width: 300px"/></td>
+                </tr>
+                <tr>
+                    <td>Age</td>
+                    <td><input type="number" name="age" id="age" min="14" max="100" step="1"
+                               placeholder="please enter age" style="width: 300px"/></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td><input type="email" name="email" id="email" placeholder="please enter email"
+                               style="width: 300px"/></td>
+                </tr>
+                <!--                <tr>-->
+                <!--                    <td>Phone</td>-->
+                <!--                    <td><input type="tel" name="phone" id="phone" placeholder="please enter phone"-->
+                <!--                               style="width: 300px"/></td>-->
+                <!--                </tr>-->
+                <tr>
+                    <td>Password</td>
+                    <td><input type="password" name="password" id="password" placeholder="please enter password"
+                               style="width: 300px"/></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <button type="submit" id="btn_submit">Submit</button>
+                        <button type="reset">Clear</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<div class="footer" style="text-align: center">
+    <a href="" style="text-decoration: none; color: white; font-size: 20px; padding-top: 20px">Điều khoản</a>
+    <a href="" style="text-decoration: none; color: white; font-size: 20px; padding-left: 20px">Trợ giúp</a>
+    <a href="" style="text-decoration: none; color: white; font-size: 20px; padding-left: 20px">Quyền riêng tư</a>
+</div>
+</body>
+</html>

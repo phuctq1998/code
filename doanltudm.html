@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>pkvl</title>
+    <style>
+        .header {
+            width: 100%;
+            height: 70px;
+            background-color: grey;
+            margin: auto;
+        }
+
+        .sidebar {
+            width: 70%;
+            height: 540px;
+            position: relative;
+            margin: auto;
+            text-align: center;
+        }
+
+        .mySlides {
+            display: none;
+        }
+
+        .text {
+            font-size: 50px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+            color: darkblue;
+        }
+        .footer {
+            width: 100%;
+            height: 70px;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <a href="doanltudm.html" style="text-decoration: none"><img src="logo1.jpg" alt="logo"
+                                                                style="height: 50px; width: 10%; padding-top: 10px"/></a>
+    <div class="item" style="width: 90%; height: 70px; float: right">
+        <a href="giaodiendangnhap.html" style="text-decoration: none; color: white;font-size: 30px; padding-left: 40px">Đăng
+            nhập</a>
+        <a href="giaodiendangky.html" style="text-decoration: none; color: white;font-size: 30px; padding-left: 40px ">Đăng
+            ký</a>
+    </div>
+</div>
+<div class="sidebar">
+    <div class="mySlides">
+        <img src="anh2.jpg" alt="slide" style="width: 100%; height: 540px"/>
+        <div class="text">Hãy chung tay xây dựng cộng đồng cùng với chúng tôi!</div>
+    </div>
+    <div class="mySlides">
+        <img src="anh3.jpg" alt="slide" style="width: 100%; height: 540px"/>
+        <div class="text">Khoảnh khắc đẹp trong cuộc sống của bạn!</div>
+    </div>
+    <div class="mySlides">
+        <img src="anh4.jpg" alt="slide" style="width: 100%; height: 540px"/>
+        <div class="text">Chia sẻ với bạn bè và người thân!</div>
+    </div>
+    <div class="mySlides">
+        <img src="anh5.jpg" alt="slide" style="width: 100%; height: 540px"/>
+        <div class="text">Cảm ơn các bạn!</div>
+    </div>
+</div>
+<div class="footer" style="text-align: center">
+    <a href="" style="text-decoration: none; color: white; font-size: 20px; padding-top: 20px">Điều khoản</a>
+    <a href="" style="text-decoration: none; color: white; font-size: 20px; padding-left: 20px">Trợ giúp</a>
+    <a href="" style="text-decoration: none; color: white; font-size: 20px; padding-left: 20px">Quyền riêng tư</a>
+</div>
+<script>
+    var slideIndex;
+
+    function showSlides() {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        x[slideIndex].style.display = "block";
+        slideIndex++;
+        if (slideIndex > x.length - 1) {
+            slideIndex = 0
+        }
+        setTimeout(showSlides, 4000);
+    }
+
+    showSlides(slideIndex = 0);
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+</script>
+</body>
+</html>
